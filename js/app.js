@@ -1,6 +1,6 @@
 'strinct';
 
-var parent = document.getElementById('mallPics');
+var parent = document.getElementById('mallImgs');
 
 var allMallPics = [];
 
@@ -78,12 +78,20 @@ function showRandomPicture(){
 
 showRandomPicture();
 
+
+var chooseHowManyRounds = 10
+
 parent.addEventListener('click', function(){
     var picClicked = event.target.title;
 
     for(var i = 0; i<allMallPics.length; i++){
         if(picClicked === allMallPics[i].title){
             allMallPics[i].votes++;
+            Rounds++;
+
+            if (rounds === chooseHowManyRounds){
+                parent.removeEventListener()
+            }
         }
     }
     showRandomPicture();
