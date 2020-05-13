@@ -1,7 +1,17 @@
 *{
-  background-color: greenyellow;
+  background-color: rgb(243, 248, 234);
 }
 
 img{
   width: 200px;
+}
+
+img{
+  width: 20%;
+}
+
+canvas{
+  border: 2px solid black;
+  width: 400px;
+  height: 400px;
 }
