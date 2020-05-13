@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
-var chooseHowManyRounds = 25
+var chooseHowManyRounds = 25;
 var uniqueIndexArray = [];
 var allBusMall = [];
-var parent = document.getElementById('mallImgs');
+var parentE = document.getElementById('mallImgs');
 var totalVotes = 0;
 var names = [];
 var vote = [];
 
 
-function data(name, extension){
+function Data(name, extension){
   this.filepath = `img/${name}${extension}`;
   this.alt = name;
   this.title = name;
@@ -18,97 +18,97 @@ function data(name, extension){
   allBusMall.push(this);
 }
 
-data.prototype.render = function(){
+Data.prototype.render = function(){
 
   var imgElement = document.createElement('img');
   imgElement.src = this.filepath;
   imgElement.alt = this.alt;
   imgElement.title = this.title;
-  parent.appendChild(imgElement);
-}
+  parentE.appendChild(imgElement);
+};
 
-new data('bag', '.jpg');
-new data('bathroom', '.jpg');
-new data('banana', '.jpg');
-new data('boots', '.jpg');
-new data('breakfast', '.jpg');
-new data('bubblegum', '.jpg');
-new data('chair', '.jpg');
-new data('cthulhu', '.jpg');
-new data('dog-duck', '.jpg');
-new data('dragon', '.jpg');
-new data('pen', '.jpg');
-new data('pet-sweep', '.jpg');
-new data('scissors', '.jpg');
-new data('shark', '.jpg');
-new data('sweep', '.png');
-new data('tauntaun', '.jpg');
-new data('unicorn', '.jpg');
-new data('usb', '.gif');
-new data('water-can', '.jpg');
-new data('wine-glass', '.jpg');
+new Data('bag', '.jpg');
+new Data('bathroom', '.jpg');
+new Data('banana', '.jpg');
+new Data('boots', '.jpg');
+new Data('breakfast', '.jpg');
+new Data('bubblegum', '.jpg');
+new Data('chair', '.jpg');
+new Data('cthulhu', '.jpg');
+new Data('dog-duck', '.jpg');
+new Data('dragon', '.jpg');
+new Data('pen', '.jpg');
+new Data('pet-sweep', '.jpg');
+new Data('scissors', '.jpg');
+new Data('shark', '.jpg');
+new Data('sweep', '.png');
+new Data('tauntaun', '.jpg');
+new Data('unicorn', '.jpg');
+new Data('usb', '.gif');
+new Data('water-can', '.jpg');
+new Data('wine-glass', '.jpg');
 
 
 function randomIndex(){
-    var index = randomNumber(allBusMall.length);
-  
-    while(uniqueIndexArray.includes(index)){
-      index = randomNumber(allBusMall.length);
-    }
-    uniqueIndexArray.push(index);
-  
-    if(uniqueIndexArray.length > 6){
-      uniqueIndexArray.shift();
-    }
-    return index;
-  }
-  
-  function randomNumber(max){
-    return Math.floor(Math.random() * max);
-  }
-  
-  function displayImg(){
-    var index = randomIndex();
-    allBusMall[index].render();
-  }
-  
-  function handleClick(event){
-    parent.textContent = '';
-  
+  var index = randomNumber(allBusMall.length);
 
-    var imgClickedOn = event.target.title;
-  
+  while(uniqueIndexArray.includes(index)){
+    index = randomNumber(allBusMall.length);
+  }
+  uniqueIndexArray.push(index);
 
-    for(var i=0; i<allBusMall.length; i++){
-      if(imgClickedOn === allBusMall[i].title){
+  if(uniqueIndexArray.length > 6){
+    uniqueIndexArray.shift();
+  }
+  return index;
+}
 
-        allBusMall[i].vote++;
-        totalVotes++;
-  
-        if(totalVotes === chooseHowManyRounds){
-          parent.removeEventListener('click', handleClick);
-          makeNamesArray();
-        }
+function randomNumber(max){
+  return Math.floor(Math.random() * max);
+}
+
+function displayImg(){
+  var index = randomIndex();
+  allBusMall[index].render();
+}
+
+function handleClick(event){
+  parentE.textContent = '';
+
+
+  var imgClickedOn = event.target.title;
+
+
+  for(var i=0; i<allBusMall.length; i++){
+    if(imgClickedOn === allBusMall[i].title){
+
+      allBusMall[i].vote++;
+      totalVotes++;
+
+      if(totalVotes === chooseHowManyRounds){
+        parentE.removeEventListener('click', handleClick);
+        makeNamesArray();
       }
     }
-
-    displayImg();
-    displayImg();
-    displayImg();
   }
 
   displayImg();
   displayImg();
   displayImg();
-  
-  parent.addEventListener('click', handleClick);
-  
+}
 
-  function makeNamesArray(){
-    for(var i=0; i<allBusMall.length; i++){
-      names.push(allBusMall[i].title);
-      vote.push(allBusMall[i].vote);
-    }
+displayImg();
+displayImg();
+displayImg();
 
-generateChart();
+parentE.addEventListener('click', handleClick);
+
+
+function makeNamesArray(){
+  for(var i=0; i<allBusMall.length; i++){
+    names.push(allBusMall[i].title);
+    vote.push(allBusMall[i].vote);
+  }
+
+  generateChart();
 }
