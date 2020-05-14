@@ -50,6 +50,7 @@ new Data('water-can', '.jpg');
 new Data('wine-glass', '.jpg');
 
 
+
 function randomIndex(){
   var index = randomNumber(allBusMall.length);
 
@@ -115,6 +116,36 @@ function makeNamesArray(){
 
   generateChart();
 }
+//////                     WANT TO MAKE VOTES AND VIEWS VAR INSTEAD ON 0. MAKE FUNCTION TO SHOOT DATA THROUGH INSTEAD OF REFACTORING. ON THE RIGHT PATH FOR LINE 138-147.
+//////
+// function start(){
+var pageData = JSON.stringify(allBusMall);
+localStorage.setItem('webData', pageData);
+
+console.log('hey', pageData);
+
+var fromLS = localStorage.getItem('webData');
+
+var toJS = JSON.parse(fromLS);
+console.log('will this work', toJS);
+
+
+// }
+// start();
+
+
+
+function previous(){
+  if (!Storage = true){
+    parentE.addEventListener('click', handleClick);
+
+    if(!Storage = false){
+
+    }
+  }
+}
+previous();
+
 
 function generateChart(){
   var ctx = document.getElementById('myChart').getContext('2d');
