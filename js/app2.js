@@ -4,18 +4,19 @@ var chooseHowManyRounds = 20;
 var uniqueIndexArray = [];
 var allBusMall = [];
 var parentE = document.getElementById('mallImgs');
-var totalVotes = 0;
+var totalVotes;
 var names = [];
 var votes = [];
 var views = [];
 
 
-function Data(name, extension){
+function Data(name, extension, varVotes, varViews){
   this.filepath = `img/${name}${extension}`;
   this.alt = name;
   this.title = name;
-  this.votes = 0;
-  this.views = 0;
+  this.votes = varVotes;
+  this.views = varViews;
+  this.end = extension;
   allBusMall.push(this);
 }
 
@@ -28,28 +29,84 @@ Data.prototype.render = function(){
   parentE.appendChild(imgElement);
 };
 
-new Data('bag', '.jpg');
-new Data('bathroom', '.jpg');
-new Data('banana', '.jpg');
-new Data('boots', '.jpg');
-new Data('breakfast', '.jpg');
-new Data('bubblegum', '.jpg');
-new Data('chair', '.jpg');
-new Data('cthulhu', '.jpg');
-new Data('dog-duck', '.jpg');
-new Data('dragon', '.jpg');
-new Data('pen', '.jpg');
-new Data('pet-sweep', '.jpg');
-new Data('scissors', '.jpg');
-new Data('shark', '.jpg');
-new Data('sweep', '.png');
-new Data('tauntaun', '.jpg');
-new Data('unicorn', '.jpg');
-new Data('usb', '.gif');
-new Data('water-can', '.jpg');
-new Data('wine-glass', '.jpg');
+function startUp(){
+  // what ever LS has stored will not be found (null) or in check
+  var check = localStorage.getItem('webData');
+
+  if(check === null){
+    new Data('bag', '.jpg', 0, 0);
+    new Data('bathroom', '.jpg', 0, 0);
+    new Data('banana', '.jpg', 0, 0);
+    new Data('boots', '.jpg', 0, 0);
+    new Data('breakfast', '.jpg', 0, 0);
+    new Data('bubblegum', '.jpg', 0, 0);
+    new Data('chair', '.jpg', 0, 0);
+    new Data('cthulhu', '.jpg', 0, 0);
+    new Data('dog-duck', '.jpg', 0, 0);
+    new Data('dragon', '.jpg', 0, 0);
+    new Data('pen', '.jpg', 0, 0);
+    new Data('pet-sweep', '.jpg', 0, 0);
+    new Data('scissors', '.jpg', 0, 0);
+    new Data('shark', '.jpg', 0, 0);
+    new Data('sweep', '.png', 0, 0);
+    new Data('tauntaun', '.jpg', 0, 0);
+    new Data('unicorn', '.jpg', 0, 0);
+    new Data('usb', '.gif', 0, 0);
+    new Data('water-can', '.jpg', 0, 0);
+    new Data('wine-glass', '.jpg', 0, 0);
+
+  }else{
+    check = JSON.parse(check);
+    console.log(check);
+
+    for(var i = 0; i < check.length; i++){
+      var storageData = check[i];
+      var storeName = storageData.title;
+      var storeEnd = storageData.end;
+      var storeVotes = storageData.votes;
+      var storeViews = storageData.views;
+
+      new Data(storeName, storeEnd, storeVotes, storeViews);
+    }
 
 
+  }
+  var save = localStorage.getItem('storeTotalVotes');
+  if(save === null){
+    totalVotes = 0;
+
+  }else{
+    totalVotes = save;
+  }
+
+
+  displayImg();
+  displayImg();
+  displayImg();
+
+  parentE.addEventListener('click', handleClick);
+}
+
+startUp();
+
+
+// function previous(){
+//   if (Storage !== true){
+//     var pageData = JSON.stringify(allBusMall);
+//     localStorage.setItem('webData', pageData);
+
+//     console.log('hey', pageData);
+
+//     if(Storage !== false){
+//       var fromLS = localStorage.getItem('webData');
+//       var toJS = JSON.parse(fromLS);
+//       console.log('will this work', toJS);
+
+//       for
+//     }
+//   }
+// }
+// previous();
 
 function randomIndex(){
   var index = randomNumber(allBusMall.length);
@@ -87,24 +144,29 @@ function handleClick(event){
 
       allBusMall[i].votes++;
       totalVotes++;
-
-      if(totalVotes === chooseHowManyRounds){
-        parentE.removeEventListener('click', handleClick);
-        makeNamesArray();
-      }
     }
   }
 
-  displayImg();
-  displayImg();
-  displayImg();
+  var pageData = JSON.stringify(allBusMall);
+  localStorage.setItem('webData', pageData);
+
+  localStorage.setItem('storeTotalVotes', totalVotes);
+
+
+  if(totalVotes === chooseHowManyRounds){
+    parentE.removeEventListener('click', handleClick);
+    makeNamesArray();
+
+    localStorage.removeItem('storeTotalVotes');
+    
+  }else{
+    displayImg();
+    displayImg();
+    displayImg();
+
+  }
+
 }
-
-displayImg();
-displayImg();
-displayImg();
-
-parentE.addEventListener('click', handleClick);
 
 
 function makeNamesArray(){
@@ -119,15 +181,15 @@ function makeNamesArray(){
 //////                     WANT TO MAKE VOTES AND VIEWS VAR INSTEAD ON 0. MAKE FUNCTION TO SHOOT DATA THROUGH INSTEAD OF REFACTORING. ON THE RIGHT PATH FOR LINE 138-147.
 //////
 // function start(){
-var pageData = JSON.stringify(allBusMall);
-localStorage.setItem('webData', pageData);
+// var pageData = JSON.stringify(allBusMall);
+// localStorage.setItem('webData', pageData);
 
-console.log('hey', pageData);
+// console.log('hey', pageData);
 
-var fromLS = localStorage.getItem('webData');
+// var fromLS = localStorage.getItem('webData');
 
-var toJS = JSON.parse(fromLS);
-console.log('will this work', toJS);
+// var toJS = JSON.parse(fromLS);
+// console.log('will this work', toJS);
 
 
 // }
@@ -135,16 +197,23 @@ console.log('will this work', toJS);
 
 
 
-function previous(){
-  if (!Storage = true){
-    parentE.addEventListener('click', handleClick);
+// function previous(){
+//   if (Storage !== true){
+//     var pageData = JSON.stringify(allBusMall);
+//     localStorage.setItem('webData', pageData);
 
-    if(!Storage = false){
+//     console.log('hey', pageData);
 
-    }
-  }
-}
-previous();
+//     if(Storage !== false){
+//       var fromLS = localStorage.getItem('webData');
+//       var toJS = JSON.parse(fromLS);
+//       console.log('will this work', toJS);
+
+//       for
+//     }
+//   }
+// }
+// previous();
 
 
 function generateChart(){
