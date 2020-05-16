@@ -90,24 +90,6 @@ function startUp(){
 startUp();
 
 
-// function previous(){
-//   if (Storage !== true){
-//     var pageData = JSON.stringify(allBusMall);
-//     localStorage.setItem('webData', pageData);
-
-//     console.log('hey', pageData);
-
-//     if(Storage !== false){
-//       var fromLS = localStorage.getItem('webData');
-//       var toJS = JSON.parse(fromLS);
-//       console.log('will this work', toJS);
-
-//       for
-//     }
-//   }
-// }
-// previous();
-
 function randomIndex(){
   var index = randomNumber(allBusMall.length);
 
@@ -178,42 +160,7 @@ function makeNamesArray(){
 
   generateChart();
 }
-//////                     WANT TO MAKE VOTES AND VIEWS VAR INSTEAD ON 0. MAKE FUNCTION TO SHOOT DATA THROUGH INSTEAD OF REFACTORING. ON THE RIGHT PATH FOR LINE 138-147.
-//////
-// function start(){
-// var pageData = JSON.stringify(allBusMall);
-// localStorage.setItem('webData', pageData);
 
-// console.log('hey', pageData);
-
-// var fromLS = localStorage.getItem('webData');
-
-// var toJS = JSON.parse(fromLS);
-// console.log('will this work', toJS);
-
-
-// }
-// start();
-
-
-
-// function previous(){
-//   if (Storage !== true){
-//     var pageData = JSON.stringify(allBusMall);
-//     localStorage.setItem('webData', pageData);
-
-//     console.log('hey', pageData);
-
-//     if(Storage !== false){
-//       var fromLS = localStorage.getItem('webData');
-//       var toJS = JSON.parse(fromLS);
-//       console.log('will this work', toJS);
-
-//       for
-//     }
-//   }
-// }
-// previous();
 
 
 function generateChart(){
@@ -226,29 +173,48 @@ function generateChart(){
         label: '# of Votes',
         data: votes,
         backgroundColor: [
-          'rgba(44, 130, 201, 0.50)',
-          'rgba(30, 139, 195, 0.50)',
-          'rgba(137, 196, 244, 0.50)',
-          'rgba(75, 119, 190, 0.50)',
-          'rgba(65, 131, 215, 0.50)',
-          'rgba(89, 171, 227, 0.50)',
-          'rgba(34, 167, 240, 0.50)',
-          'rgba(25, 181, 254, 0.50)',
-          'rgba(52, 152, 219, 0.50)',
-          'rgba(37, 116, 169, 0.50)',
-          'rgba(1, 50, 67, 0.50)',
-          'rgba(107, 185, 240, 0.50)',
-          'rgba(92, 151, 191, 0.50)',
-          'rgba(31, 58, 147, 0.50)',
-          'rgba(68, 108, 179, 0.50)',
-          'rgba(51, 110, 123, 0.50)',
-          'rgba(58, 83, 155, 0.50)',
-          'rgba(44, 62, 80, 0.50)',
-          'rgba(197, 239, 247, 0.50)',
-          'rgba(34, 49, 63, 0.50)'
+          'rgba(154, 205, 50, 0.70)',
+          'rgba(107, 142, 35, 0.70)',
+          'rgba(124, 252, 0, 0.70)',
+          'rgba(173, 255, 0, 0.70)',
+          'rgba(0, 100, 0, 0.70)',
+          'rgba(34, 139, 34, 0.70)',
+          'rgba(0, 255, 0, 0.70)',
+          'rgba(0, 250, 154, 0.70)',
+          'rgba(60, 179, 113, 0.70)',
+          'rgba(32, 178, 170, 0.70)',
+          'rgba(47, 79, 79, 0.70)',
+          'rgba(0, 139, 139, 0.70)',
+          'rgba(0, 255, 255, 0.70)',
+          'rgba(0, 191, 255, 0.70)',
+          'rgba(30, 144, 255, 0.70)',
+          'rgba(135, 206, 250, 0.70)',
+          'rgba(0, 0, 205, 0.70)',
+          'rgba(0, 0, 255, 0.70)',
+          'rgba(0, 0, 139, 0.70)',
+          'rgba(25, 25, 112, 0.70)',
         ],
         borderColor: [
+          'rgba(154, 205, 50, 1)',
+          'rgba(107, 142, 35, 1)',
+          'rgba(124, 252, 0, 1)',
+          'rgba(173, 255, 0, 1)',
+          'rgba(0, 100, 0, 1)',
+          'rgba(34, 139, 34, 1)',
+          'rgba(0, 255, 0, 1)',
+          'rgba(0, 250, 154, 1)',
+          'rgba(60, 179, 113, 1)',
+          'rgba(32, 178, 170, 1)',
+          'rgba(47, 79, 79, 1)',
+          'rgba(0, 139, 139, 1)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(30, 144, 255, 1)',
+          'rgba(135, 206, 250, 1)',
+          'rgba(0, 0, 205, 1)',
           'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 139, 1)',
+          'rgba(25, 25, 112, 1)',
         ],
         borderWidth: 1
       },
@@ -256,29 +222,48 @@ function generateChart(){
         label: '# of Views',
         data: views,
         backgroundColor: [
-          'rgba(130, 44, 44, 0.50)',
-          'rgba(139, 30, 30, 0.50)',
-          'rgba(196, 137, 137, 0.50)',
-          'rgba(119, 75, 190, 0.50)',
-          'rgba(131, 65, 215, 0.50)',
-          'rgba(171, 89, 227, 0.50)',
-          'rgba(167, 34, 240, 0.50)',
-          'rgba(181, 25, 254, 0.50)',
-          'rgba(152, 52, 219, 0.50)',
-          'rgba(116, 37, 169, 0.50)',
-          'rgba(50, 1, 67, 0.50)',
-          'rgba(185, 107, 240, 0.50)',
-          'rgba(151, 92, 191, 0.50)',
-          'rgba(58, 31, 147, 0.50)',
-          'rgba(108, 68, 179, 0.50)',
-          'rgba(110, 51, 123, 0.50)',
-          'rgba(83, 58, 155, 0.50)',
-          'rgba(62, 44, 80, 0.50)',
-          'rgba(239, 197, 247, 0.50)',
-          'rgba(49, 34, 63, 0.50)'
+          'rgba(154, 205, 0.30)',
+          'rgba(107, 142, 35, 0.30)',
+          'rgba(124, 252, 0, 0.30)',
+          'rgba(173, 255, 0, 0.30)',
+          'rgba(0, 100, 0, 0.30)',
+          'rgba(34, 139, 34, 0.30)',
+          'rgba(0, 255, 0, 0.30)',
+          'rgba(0, 250, 154, 0.30)',
+          'rgba(60, 179, 113, 0.30)',
+          'rgba(32, 178, 170, 0.30)',
+          'rgba(47, 79, 79, 0.30)',
+          'rgba(0, 139, 139, 0.30)',
+          'rgba(0, 255, 255, 0.30)',
+          'rgba(0, 191, 255, 0.30)',
+          'rgba(30, 144, 255, 0.30)',
+          'rgba(135, 206, 250, 0.30)',
+          'rgba(0, 0, 205, 0.30)',
+          'rgba(0, 0, 255, 0.30)',
+          'rgba(0, 0, 139, 0.30)',
+          'rgba(25, 25, 112, 0.30)',
         ],
         borderColor: [
+          'rgba(154, 205, 50, 1)',
+          'rgba(107, 142, 35, 1)',
+          'rgba(124, 252, 0, 1)',
+          'rgba(173, 255, 0, 1)',
+          'rgba(0, 100, 0, 1)',
+          'rgba(34, 139, 34, 1)',
+          'rgba(0, 255, 0, 1)',
+          'rgba(0, 250, 154, 1)',
+          'rgba(60, 179, 113, 1)',
+          'rgba(32, 178, 170, 1)',
+          'rgba(47, 79, 79, 1)',
+          'rgba(0, 139, 139, 1)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(30, 144, 255, 1)',
+          'rgba(135, 206, 250, 1)',
+          'rgba(0, 0, 205, 1)',
           'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 139, 1)',
+          'rgba(25, 25, 112, 1)',
         ],
         borderWidth: 1
       }]
@@ -294,3 +279,13 @@ function generateChart(){
     }
   });
 }
+
+
+/// user change the color of webpage
+var input = document.querySelector('input');
+var body = document.querySelector('body');
+
+input.addEventListener('change',
+  function(){
+    body.style.setProperty('--body-color', input.value);
+  });
