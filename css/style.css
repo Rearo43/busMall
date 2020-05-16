@@ -1,5 +1,13 @@
-*{
-  background-color: rgb(243, 248, 234);
+.change{ 
+  --body-color: rgba(128, 159, 206, 0.933);
+ background-color: var(--body-color);
+
+}
+
+canvas{
+ background-color: bisque;
+ width: 0px;
+ height: 0px;
 }
 
 header{
@@ -10,18 +18,33 @@ header{
   padding-top: 30px;
 }
 
+main{
+  width: 90%;
+  text-align: center;
+  position: relative;
+  left: 5%;
+
+}
+
 img{
   width: 22%;
   padding: 5%;
 }
 
-canvas{
-  border: 2px solid black;
-  width: 400px;
-  height: 400px;
+#mallImgs{
+  border: 3px solid black;
+
+}
+body{
+  height: 200px;
+  background-color: var(--body-color);
+  
 }
 
-#mallImgs{
-  padding-top:;
-  border: 3px solid black;
+label{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  left: 40%;
+  
 }
